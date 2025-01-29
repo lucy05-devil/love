@@ -16,7 +16,7 @@
         <div class="buttons">
             <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
             <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
-            <script>
+<!--             <script>
                 function nextPage() {
                     window.location.href = "yes.html";
                 }
@@ -29,7 +29,31 @@
                     document.getElementById("noButton").style.left = `${x}px`;
                     document.getElementById("noButton").style.top = `${y}px`;
                 }
-            </script>
+            </script> -->
+            <script>
+    function nextPage() {
+        window.location.href = "yes.html";
+    }
+
+    function moveButton() {
+        var x = Math.random() * (window.innerWidth - document.getElementById("noButton").offsetWidth);
+        var y = Math.random() * (window.innerHeight - document.getElementById("noButton").offsetHeight);
+        document.getElementById("noButton").style.left = `${x}px`;
+        document.getElementById("noButton").style.top = `${y}px`;
+    }
+
+    // Adding background animation for a dynamic look
+    setInterval(() => {
+        document.body.style.background = `linear-gradient(${Math.random() * 360}deg, rgb(0, 249, 236), rgb(71, 150, 229))`;
+    }, 5000);
+
+    // Adding confirmation popup for "Yes" button click
+    document.getElementById("yesButton").addEventListener("click", function() {
+        setTimeout(function() {
+            alert("Yay! You want to go out with me!");
+        }, 300);
+    });
+</script>
         </div>
     </div>
 </body>
